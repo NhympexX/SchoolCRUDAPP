@@ -1,0 +1,33 @@
+﻿@model List<Student>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<a class="btn btn-primary" asp-action="Student" asp-route-id="null">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Age</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var student in Model)
+        {
+            <tr>
+                <td scope="row">@student.Id</td>
+                <td scope="row">@student.Name</td>
+                <td scope="row">@student.Surname</td>
+                <td scope="row">@student.Age</td>
+                <td><a class="btn btn-danger" asp-action="Delete" asp-route-id="@student.Id">Delete</a>
+                    <a class="btn btn-primary" asp-action="Update" asp-route-id="@student.Id">Update</a>
+                 </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
